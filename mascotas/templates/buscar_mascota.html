@@ -1,0 +1,14 @@
+<h1>Buscar Mascota</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Buscar</button>
+</form>
+{% if mascotas %}
+    <h2>Resultados:</h2>
+    <ul>
+        {% for mascota in mascotas %}
+            <li>{{ mascota.nombre }} - {{ mascota.especie }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
